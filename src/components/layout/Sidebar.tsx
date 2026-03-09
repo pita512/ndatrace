@@ -332,7 +332,7 @@ export default function Sidebar() {
     <aside className="fixed top-0 left-0 h-screen w-60 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-800 flex flex-col z-30 transition-colors">
       {/* Logo */}
       <div className="flex items-center px-5 py-4 border-b border-gray-100 dark:border-gray-800">
-        <a href="https://ndatrace.vercel.app/dashboard" target="_blank" rel="noopener noreferrer">
+        <Link href="/dashboard">
           <Image
             src="/media/logo.svg"
             alt="NDATrace"
@@ -340,7 +340,7 @@ export default function Sidebar() {
             height={40}
             priority
           />
-        </a>
+        </Link>
       </div>
 
       {/* Search */}
