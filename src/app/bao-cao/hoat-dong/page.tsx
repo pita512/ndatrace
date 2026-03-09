@@ -46,10 +46,10 @@ export default function Page() {
 
       <div className="grid grid-cols-4 gap-4 mb-6">
         {summaryCards.map((c) => (
-          <div key={c.label} className="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
-            <p className="text-xs text-gray-500 mb-1">{c.label}</p>
+          <div key={c.label} className="bg-white rounded-2xl border border-gray-100 p-4">
+            <p className="text-[13px] text-gray-500 mb-1">{c.label}</p>
             <p className="text-2xl font-bold text-gray-900">{c.value}</p>
-            <p className={`text-xs mt-1 font-medium ${c.up ? "text-green-600" : "text-red-500"}`}>
+            <p className={`text-[13px] mt-1 font-medium ${c.up ? "text-green-600" : "text-red-500"}`}>
               {c.change} so với tháng trước
             </p>
           </div>
@@ -57,7 +57,7 @@ export default function Page() {
       </div>
 
       <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
+        <div className="bg-white rounded-2xl border border-gray-100 p-5">
           <h2 className="text-sm font-semibold text-gray-700 mb-4">Sự kiện truy xuất theo tháng (2026)</h2>
           <ResponsiveContainer width="100%" height={260}>
             <LineChart data={monthlyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
@@ -71,7 +71,7 @@ export default function Page() {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
+        <div className="bg-white rounded-2xl border border-gray-100 p-5">
           <h2 className="text-sm font-semibold text-gray-700 mb-4">UID được cấp theo tháng (2026)</h2>
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={monthlyData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>

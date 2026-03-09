@@ -86,14 +86,14 @@ export default function Page() {
 
       <div className="grid grid-cols-4 gap-4 mb-6">
         {statCards.map((c) => (
-          <div key={c.label} className="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
-            <p className="text-xs text-gray-500 mb-1">{c.label}</p>
+          <div key={c.label} className="bg-white rounded-2xl border border-gray-100 p-4">
+            <p className="text-[13px] text-gray-500 mb-1">{c.label}</p>
             <p className={`text-2xl font-bold ${c.color}`}>{c.value}</p>
           </div>
         ))}
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm mb-6">
+      <div className="bg-white rounded-2xl border border-gray-100 p-5 mb-6">
         <h2 className="text-sm font-semibold text-gray-700 mb-4">UID cấp phát theo danh mục sản phẩm</h2>
         <ResponsiveContainer width="100%" height={220}>
           <BarChart data={categoryData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
@@ -110,7 +110,7 @@ export default function Page() {
         </ResponsiveContainer>
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
+      <div className="bg-white rounded-2xl border border-gray-100 p-5">
         <h2 className="text-sm font-semibold text-gray-700 mb-4">Danh sách đợt cấp phát UID</h2>
         <DataTable columns={columns} data={allocationBatches} searchable searchKeys={["id", "ten_dot", "danh_muc"] as never[]} />
       </div>

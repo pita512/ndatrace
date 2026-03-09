@@ -22,7 +22,7 @@ export default function ActivityMap() {
     <div className="bg-white rounded-2xl p-5 border border-gray-100">
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-semibold text-gray-800 text-sm">Bản đồ hoạt động</h3>
-        <select className="text-xs border border-gray-200 rounded-lg px-2 py-1 text-gray-600 outline-none focus:border-brand-400">
+        <select className="text-[13px] border border-gray-200 rounded-lg px-2 py-1 text-gray-600 outline-none focus:border-brand-400">
           <option>Tháng 3/2026</option>
           <option>Tháng 2/2026</option>
           <option>Tháng 1/2026</option>
@@ -44,11 +44,11 @@ export default function ActivityMap() {
         </div>
         <div className="flex justify-between mt-2">
           {months.map((m) => (
-            <span key={m} className="text-[10px] text-gray-400">{m}</span>
+            <span key={m} className="text-[13px] text-gray-400">{m}</span>
           ))}
         </div>
       </div>
-      <p className="text-xs text-gray-400 mt-3">
+      <p className="text-[13px] text-gray-400 mt-3">
         <span className="font-semibold text-gray-700">247</span> sự kiện trong 6 tháng qua
       </p>
     </div>

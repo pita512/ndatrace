@@ -15,7 +15,7 @@ function Modal({ title, onClose, children }: { title: string; onClose: () => voi
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-md max-h-[80vh] overflow-y-auto">
+      <div className="relative bg-white dark:bg-gray-900 rounded-2xl w-full max-w-md max-h-[80vh] overflow-y-auto">
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
           <h2 className="text-base font-semibold text-gray-900 dark:text-white">{title}</h2>
           <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
@@ -55,8 +55,8 @@ function RolePermissionModal({ onClose }: { onClose: () => void }) {
           <button
             key={t}
             onClick={() => { setTab(t); setValue(""); }}
-            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-medium transition-all ${
-              tab === t ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm" : "text-gray-500 hover:text-gray-700"
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-[13px] font-medium transition-all ${
+              tab === t ? "bg-white dark:bg-gray-700 text-gray-900 dark:text-white" : "text-gray-500 hover:text-gray-700"
             }`}
           >
             {t === "email" ? <Mail size={13} /> : <Phone size={13} />}
@@ -67,7 +67,7 @@ function RolePermissionModal({ onClose }: { onClose: () => void }) {
 
       {/* Input */}
       <div className="mb-4">
-        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1.5">
+        <label className="block text-[13px] font-medium text-gray-600 dark:text-gray-400 mb-1.5">
           {tab === "email" ? "Địa chỉ email" : "Số điện thoại"}
         </label>
         <input
@@ -81,7 +81,7 @@ function RolePermissionModal({ onClose }: { onClose: () => void }) {
 
       {/* Role picker */}
       <div className="mb-5">
-        <label className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-2">Vai trò</label>
+        <label className="block text-[13px] font-medium text-gray-600 dark:text-gray-400 mb-2">Vai trò</label>
         <div className="space-y-2">
           {roles.map((r) => (
             <label
@@ -97,8 +97,8 @@ function RolePermissionModal({ onClose }: { onClose: () => void }) {
                 {role === r.id && <div className="size-1.5 bg-white rounded-full" />}
               </div>
               <div>
-                <p className="text-xs font-semibold text-gray-800 dark:text-gray-200">{r.label}</p>
-                <p className="text-[10px] text-gray-400">{r.desc}</p>
+                <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200">{r.label}</p>
+                <p className="text-[13px] text-gray-400">{r.desc}</p>
               </div>
             </label>
           ))}
@@ -108,7 +108,7 @@ function RolePermissionModal({ onClose }: { onClose: () => void }) {
       <button
         onClick={handleSave}
         className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-          saved ? "bg-brand-100 text-brand-700" : "bg-brand-600 hover:bg-brand-700 text-white shadow-sm shadow-brand-200"
+          saved ? "bg-brand-100 text-brand-700" : "bg-brand-600 hover:bg-brand-700 text-white"
         }`}
       >
         {saved ? <><Check size={15} /> Đã lưu</> : "Lưu phân quyền"}
@@ -134,7 +134,7 @@ function TermsModal({ onClose }: { onClose: () => void }) {
         <p>Chúng tôi có thể cập nhật điều khoản này theo thời gian. Người dùng sẽ được thông báo qua email khi có thay đổi quan trọng.</p>
       </div>
       <div className="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
-        <p className="text-[11px] text-gray-400 text-center">Cập nhật lần cuối: 01/01/2026 · Phiên bản 2.1</p>
+        <p className="text-[13px] text-gray-400 text-center">Cập nhật lần cuối: 01/01/2026 · Phiên bản 2.1</p>
       </div>
     </Modal>
   );
@@ -153,23 +153,23 @@ function InstructionModal({ onClose }: { onClose: () => void }) {
 
   return (
     <Modal title="Hướng dẫn sử dụng" onClose={onClose}>
-      <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">Làm theo các bước dưới đây để bắt đầu sử dụng hệ thống NDATrace.</p>
+      <p className="text-[13px] text-gray-500 dark:text-gray-400 mb-4">Làm theo các bước dưới đây để bắt đầu sử dụng hệ thống NDATrace.</p>
       <div className="space-y-3">
         {steps.map((s) => (
           <div key={s.step} className="flex gap-3 p-3.5 rounded-xl bg-gray-50 dark:bg-gray-800">
-            <div className="size-8 rounded-lg bg-brand-600 text-white text-xs font-bold flex items-center justify-center shrink-0">
+            <div className="size-8 rounded-lg bg-brand-600 text-white text-[13px] font-bold flex items-center justify-center shrink-0">
               {s.step}
             </div>
             <div>
-              <p className="text-xs font-semibold text-gray-800 dark:text-gray-200">{s.title}</p>
-              <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">{s.desc}</p>
+              <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200">{s.title}</p>
+              <p className="text-[13px] text-gray-500 dark:text-gray-400 mt-0.5">{s.desc}</p>
             </div>
           </div>
         ))}
       </div>
       <div className="mt-5 p-3.5 rounded-xl bg-brand-50 dark:bg-brand-900/20 border border-brand-100 dark:border-brand-800">
-        <p className="text-xs text-brand-700 dark:text-brand-300 font-medium">Cần hỗ trợ thêm?</p>
-        <p className="text-[11px] text-brand-600 dark:text-brand-400 mt-0.5">Liên hệ: support@ndatrace.vn · Hotline: 1800 xxxx</p>
+        <p className="text-[13px] text-brand-700 dark:text-brand-300 font-medium">Cần hỗ trợ thêm?</p>
+        <p className="text-[13px] text-brand-600 dark:text-brand-400 mt-0.5">Liên hệ: support@ndatrace.vn · Hotline: 1800 xxxx</p>
       </div>
     </Modal>
   );
@@ -239,12 +239,12 @@ export default function UserMenu() {
             open ? "bg-gray-100 dark:bg-gray-800" : "hover:bg-gray-50 dark:hover:bg-gray-800"
           }`}
         >
-          <div className="size-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white text-xs font-bold shadow-sm">
+          <div className="size-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white text-[13px] font-bold">
             A
           </div>
           <div className="text-left">
             <p className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-none">Admin</p>
-            <p className="text-[10px] text-gray-400">Quản trị viên</p>
+            <p className="text-[13px] text-gray-400">Quản trị viên</p>
           </div>
           <ChevronDown
             size={14}
@@ -254,7 +254,7 @@ export default function UserMenu() {
 
         {/* Dropdown */}
         {open && (
-          <div className="absolute right-0 top-full mt-2 w-64 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xl shadow-gray-200/60 dark:shadow-black/40 overflow-hidden z-50">
+          <div className="absolute right-0 top-full mt-2 w-64 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden z-50">
             {/* User info */}
             <div className="px-4 py-4 border-b border-gray-100 dark:border-gray-800 flex items-center gap-3">
               <div className="size-10 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white text-sm font-bold shadow">
@@ -262,7 +262,7 @@ export default function UserMenu() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">Admin</p>
-                <p className="text-[11px] text-gray-400">admin@ndatrace.vn</p>
+                <p className="text-[13px] text-gray-400">admin@ndatrace.vn</p>
               </div>
             </div>
 
@@ -280,8 +280,8 @@ export default function UserMenu() {
                       <Icon size={15} className="text-gray-500 group-hover:text-brand-600 transition-colors" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-semibold text-gray-800 dark:text-gray-200">{item.label}</p>
-                      <p className="text-[10px] text-gray-400 truncate">{item.desc}</p>
+                      <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200">{item.label}</p>
+                      <p className="text-[13px] text-gray-400 truncate">{item.desc}</p>
                     </div>
                     {item.right && <div className="shrink-0">{item.right}</div>}
                   </button>
@@ -299,10 +299,10 @@ export default function UserMenu() {
                   <LogOut size={15} className="text-gray-500 group-hover:text-red-500 transition-colors" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-gray-800 dark:text-gray-200 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                  <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
                     Đăng xuất
                   </p>
-                  <p className="text-[10px] text-gray-400">Thoát khỏi hệ thống</p>
+                  <p className="text-[13px] text-gray-400">Thoát khỏi hệ thống</p>
                 </div>
               </button>
             </div>

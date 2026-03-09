@@ -17,7 +17,7 @@ export default function StatCard({ title, value, change, subtitle, icon, iconBg 
       <div className="flex items-start justify-between mb-4">
         <div className={`p-2.5 rounded-xl ${iconBg}`}>{icon}</div>
         <span
-          className={`flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-full ${
+          className={`flex items-center gap-1 text-[13px] font-semibold px-2 py-1 rounded-full ${
             isPositive ? "text-brand-700 bg-brand-50" : "text-red-600 bg-red-50"
           }`}
         >
@@ -26,8 +26,8 @@ export default function StatCard({ title, value, change, subtitle, icon, iconBg 
         </span>
       </div>
       <p className="text-3xl font-bold text-gray-900 mb-1">{value}</p>
-      <p className="text-xs font-medium text-gray-500">{title}</p>
-      <p className="text-xs text-gray-400 mt-2">{subtitle}</p>
+      <p className="text-[13px] font-medium text-gray-500">{title}</p>
+      <p className="text-[13px] text-gray-400 mt-2">{subtitle}</p>
     </div>
   );
 }

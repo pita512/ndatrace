@@ -32,23 +32,23 @@ export default function PerformanceChart() {
       <div className="flex items-center justify-between mb-5">
         <div>
           <h3 className="font-semibold text-gray-800 text-sm">Hiệu suất chuỗi cung ứng</h3>
-          <p className="text-xs text-gray-400 mt-0.5">01 Jan – 31 Dec 2025</p>
+          <p className="text-[13px] text-gray-400 mt-0.5">01 Jan – 31 Dec 2025</p>
         </div>
-        <select className="text-xs border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 outline-none focus:border-brand-400">
+        <select className="text-[13px] border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 outline-none focus:border-brand-400">
           <option>Năm 2025</option>
           <option>Năm 2024</option>
         </select>
       </div>
       <div className="flex items-center gap-4 mb-4">
-        <span className="flex items-center gap-1.5 text-xs text-gray-600">
+        <span className="flex items-center gap-1.5 text-[13px] text-gray-600">
           <span className="size-2.5 rounded-full bg-brand-500 inline-block" />
           Hoạt động
         </span>
-        <span className="flex items-center gap-1.5 text-xs text-gray-600">
+        <span className="flex items-center gap-1.5 text-[13px] text-gray-600">
           <span className="size-2.5 rounded-full bg-amber-400 inline-block" />
           Mới
         </span>
-        <span className="flex items-center gap-1.5 text-xs text-gray-600">
+        <span className="flex items-center gap-1.5 text-[13px] text-gray-600">
           <span className="size-2.5 rounded-full bg-red-400 inline-block" />
           Cảnh báo
         </span>

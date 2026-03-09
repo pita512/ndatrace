@@ -109,7 +109,7 @@ export default function DataTable<T extends Record<string, unknown>>({
                     onClick={() => isSortable && handleSort(key)}
                   >
                     <div className="flex items-center gap-1.5 group">
-                      <span className={`text-xs font-semibold uppercase tracking-wide transition-colors ${
+                      <span className={`text-[13px] font-semibold uppercase tracking-wide transition-colors ${
                         isActive ? "text-brand-600 dark:text-brand-400" : "text-gray-500 dark:text-gray-400"
                       }`}>
                         {col.label}
@@ -156,7 +156,7 @@ export default function DataTable<T extends Record<string, unknown>>({
       </div>
       {pages > 1 && (
         <div className="flex items-center justify-between px-5 py-3 border-t border-gray-100 dark:border-gray-800">
-          <p className="text-xs text-gray-500">
+          <p className="text-[13px] text-gray-500">
             {(page - 1) * perPage + 1}–{Math.min(page * perPage, total)} / {total} bản ghi
           </p>
           <div className="flex items-center gap-1">
@@ -171,7 +171,7 @@ export default function DataTable<T extends Record<string, unknown>>({
               <button
                 key={p}
                 onClick={() => setPage(p)}
-                className={`min-w-[28px] h-7 rounded-lg text-xs font-medium transition-colors ${
+                className={`min-w-[28px] h-7 rounded-lg text-[13px] font-medium transition-colors ${
                   p === page ? "bg-brand-600 text-white" : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400"
                 }`}
               >

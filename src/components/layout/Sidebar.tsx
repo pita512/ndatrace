@@ -135,7 +135,7 @@ function SidebarSearch() {
           onFocus={() => setOpen(true)}
           onKeyDown={onKeyDown}
           placeholder="Tìm menu..."
-          className="flex-1 bg-transparent text-xs text-gray-700 dark:text-gray-300 placeholder-gray-400 outline-none"
+          className="flex-1 bg-transparent text-[13px] text-gray-700 dark:text-gray-300 placeholder-gray-400 outline-none"
         />
         {query && (
           <button
@@ -148,10 +148,10 @@ function SidebarSearch() {
       </div>
 
       {open && query.trim() && (
-        <div className="absolute left-3 right-3 top-full mt-1 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-lg overflow-hidden z-50">
+        <div className="absolute left-3 right-3 top-full mt-1 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden z-50">
           {results.length > 0 ? (
             <>
-              <p className="px-3 pt-2.5 pb-1 text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+              <p className="px-3 pt-2.5 pb-1 text-[13px] font-semibold text-gray-400 uppercase tracking-wider">
                 {results.length} kết quả
               </p>
               <ul>
@@ -175,11 +175,11 @@ function SidebarSearch() {
                           <Icon size={12} className={i === activeIdx ? "text-brand-600" : "text-gray-500"} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-xs font-medium text-gray-800 dark:text-gray-200 truncate">
+                          <p className="text-[13px] font-medium text-gray-800 dark:text-gray-200 truncate">
                             <Highlight text={item.label} query={query} />
                           </p>
                           {item.parent && (
-                            <p className="text-[10px] text-gray-400 truncate">{item.parent}</p>
+                            <p className="text-[13px] text-gray-400 truncate">{item.parent}</p>
                           )}
                         </div>
                         <ArrowRight
@@ -191,14 +191,14 @@ function SidebarSearch() {
                   );
                 })}
               </ul>
-              <p className="px-3 py-2 text-[10px] text-gray-400 border-t border-gray-50 dark:border-gray-800">
+              <p className="px-3 py-2 text-[13px] text-gray-400 border-t border-gray-50 dark:border-gray-800">
                 ↑↓ điều hướng · Enter chọn · Esc đóng
               </p>
             </>
           ) : (
             <div className="px-4 py-5 text-center">
-              <p className="text-xs font-medium text-gray-500">Không tìm thấy kết quả</p>
-              <p className="text-[10px] text-gray-400 mt-0.5">Thử từ khóa khác</p>
+              <p className="text-[13px] font-medium text-gray-500">Không tìm thấy kết quả</p>
+              <p className="text-[13px] text-gray-400 mt-0.5">Thử từ khóa khác</p>
             </div>
           )}
         </div>
@@ -214,7 +214,7 @@ function NavLeaf({ item }: { item: NavItem }) {
   return (
     <Link
       href={item.href}
-      className={`block pl-3 pr-2 py-1.5 rounded-lg text-[11px] transition-all ${
+      className={`block pl-3 pr-2 py-1.5 rounded-lg text-[13px] transition-all ${
         active
           ? "text-brand-600 dark:text-brand-400 font-semibold bg-brand-50 dark:bg-brand-900/20"
           : "text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
@@ -235,7 +235,7 @@ function NavChild({ item }: { item: NavItem }) {
     return (
       <Link
         href={item.href}
-        className={`flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs transition-all ${
+        className={`flex items-center gap-2 px-2 py-1.5 rounded-lg text-[13px] transition-all ${
           isActive
             ? "text-brand-600 dark:text-brand-400 font-semibold bg-brand-50 dark:bg-brand-900/20"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
@@ -255,7 +255,7 @@ function NavChild({ item }: { item: NavItem }) {
     <div>
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs font-medium transition-all ${
+        className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-lg text-[13px] font-medium transition-all ${
           isActive
             ? "text-brand-600 dark:text-brand-400"
             : "text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800"
@@ -336,7 +336,7 @@ export default function Sidebar() {
         </div>
         <div>
           <p className="text-sm font-bold text-gray-900 dark:text-white leading-none">NDATrace</p>
-          <p className="text-[10px] text-gray-400 mt-0.5">Truy xuất nguồn gốc</p>
+          <p className="text-[13px] text-gray-400 mt-0.5">Truy xuất nguồn gốc</p>
         </div>
       </div>
 
@@ -355,12 +355,12 @@ export default function Sidebar() {
       {/* Footer */}
       <div className="px-4 py-4 border-t border-gray-100 dark:border-gray-800">
         <div className="flex items-center gap-3">
-          <div className="size-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white text-xs font-bold">
+          <div className="size-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white text-[13px] font-bold">
             A
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-xs font-semibold text-gray-800 dark:text-gray-200 truncate">Admin</p>
-            <p className="text-[10px] text-gray-400 truncate">Quản trị viên</p>
+            <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 truncate">Admin</p>
+            <p className="text-[13px] text-gray-400 truncate">Quản trị viên</p>
           </div>
         </div>
       </div>

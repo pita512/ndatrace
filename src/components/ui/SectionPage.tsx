@@ -49,7 +49,7 @@ export default function SectionPage({
         <div className="flex items-center gap-3 mb-5">
           {stats.map((s) => (
             <div key={s.label} className="bg-white rounded-xl px-4 py-3 border border-gray-100 flex items-center gap-3">
-              <p className="text-xs text-gray-500">{s.label}</p>
+              <p className="text-[13px] text-gray-500">{s.label}</p>
               <Badge variant={s.variant}>{s.value}</Badge>
             </div>
           ))}

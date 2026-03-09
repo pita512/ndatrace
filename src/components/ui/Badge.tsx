@@ -14,7 +14,7 @@ const styles = {
 export default function Badge({ children, variant = "neutral" }: BadgeProps) {
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium border ${styles[variant]}`}
+      className={`inline-flex items-center px-2 py-0.5 rounded-full text-[13px] font-medium border ${styles[variant]}`}
     >
       {children}
     </span>
