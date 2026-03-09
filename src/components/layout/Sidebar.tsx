@@ -355,18 +355,6 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      {/* Footer */}
-      <div className="px-4 py-4 border-t border-gray-100 dark:border-gray-800">
-        <div className="flex items-center gap-3">
-          <div className="size-8 rounded-full bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white text-[13px] font-bold">
-            A
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 truncate">Admin</p>
-            <p className="text-[13px] text-gray-400 truncate">Quản trị viên</p>
-          </div>
-        </div>
-      </div>
     </aside>
   );
 }
