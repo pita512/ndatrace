@@ -1,7 +1,20 @@
 "use client";
 
+import { useState } from "react";
+import { Plus } from "lucide-react";
 import SectionPage from "@/components/ui/SectionPage";
 import Badge from "@/components/ui/Badge";
+import AddPartnerModal from "@/components/AddPartnerModal";
+
+interface PartnerData {
+  id: string;
+  ten: string;
+  loai: string;
+  quoc_gia: string;
+  lien_he: string;
+  email: string;
+  trang_thai: "active" | "inactive";
+}
 
 const data = [
   { id: "DT001", ten: "GS1 Vietnam", loai: "Tổ chức tiêu chuẩn", quoc_gia: "Việt Nam", lien_he: "Nguyễn Hồng Minh", email: "contact@gs1.org.vn", trang_thai: "active" },
@@ -35,7 +48,6 @@ const loaiColors: Record<string, "success" | "info" | "warning" | "neutral"> = {
 
 const columns = [
   { key: "id", label: "Mã", width: "80px" },
-  { key: "ten", label: "Tên đối tác" },
   {
     key: "loai",
     label: "Loại đối tác",
@@ -60,20 +72,44 @@ const columns = [
 ];
 
 export default function Page() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [partners, setPartners] = useState(data);
+
+  const handleSavePartner = (newPartner: Omit<PartnerData, "id">) => {
+    const id = `DT${String(partners.length + 1).padStart(3, "0")}`;
+    const partnerWithId = { ...newPartner, id };
+    setPartners([...partners, partnerWithId]);
+  };
+
+  const actionButton = (
+    <button
+      onClick={() => setIsModalOpen(true)}
+      className="flex items-center gap-1.5 text-[14px] font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl px-4 py-2 transition-colors"
+    >
+      <Plus size={14} /> Thêm đối tác
+    </button>
+  );
+
   return (
-    <SectionPage
-      title="Đối tác"
-      subtitle="Quản lý thông tin đối tác trong và ngoài nước của hệ thống"
-      stats={[
-        { label: "Tổng đối tác", value: data.length, variant: "info" },
-        { label: "Đang hợp tác", value: data.filter((d) => d.trang_thai === "active").length, variant: "success" },
-        { label: "Ngừng hợp tác", value: data.filter((d) => d.trang_thai === "inactive").length, variant: "neutral" },
-        { label: "Đối tác quốc tế", value: data.filter((d) => d.quoc_gia !== "Việt Nam").length, variant: "info" },
-      ]}
-      tableColumns={columns}
-      tableData={data}
-      searchKeys={["id", "ten", "loai", "quoc_gia", "lien_he", "email"]}
-      addLabel="Thêm đối tác"
-    />
+    <>
+      <SectionPage
+        title="Đối tác"
+        subtitle="Quản lý thông tin đối tác trong và ngoài nước của hệ thống"
+        stats={[
+          { label: "Tổng đối tác", value: partners.length, variant: "info" },
+          { label: "Đang hợp tác", value: partners.filter((d) => d.trang_thai === "active").length, variant: "success" },
+          { label: "Ngừng hợp tác", value: partners.filter((d) => d.trang_thai === "inactive").length, variant: "neutral" },
+          { label: "Đối tác quốc tế", value: partners.filter((d) => d.quoc_gia !== "Việt Nam").length, variant: "info" },
+        ]}
+        tableColumns={columns}
+        tableData={partners}
+        actionButton={actionButton}
+      />
+      <AddPartnerModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSavePartner}
+      />
+    </>
   );
 }

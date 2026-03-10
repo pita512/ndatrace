@@ -71,7 +71,7 @@ export default function Page() {
             <div className="flex items-center gap-2 mb-2">
               <p className="text-sm font-semibold text-gray-800">{r.role}</p>
             </div>
-            <p className="text-[13px] text-gray-500 mb-3">{r.desc}</p>
+            <p className="text-[14px] text-gray-500 mb-3">{r.desc}</p>
             <div className="flex flex-wrap gap-1">
               {r.permissions.xem && <Badge variant="info">Xem</Badge>}
               {r.permissions.tao && <Badge variant="success">Tạo</Badge>}
@@ -92,18 +92,18 @@ export default function Page() {
           <table className="w-full text-sm">
             <thead className="bg-gray-50">
               <tr>
-                <th className="text-left px-4 py-3 text-[13px] font-semibold text-gray-600 w-40">Module</th>
+                <th className="text-left px-4 py-3 text-[14px] font-semibold text-gray-600 w-40">Module</th>
                 {roleOrder.map((role) => (
-                  <th key={role} className="text-center px-2 py-3 text-[13px] font-semibold text-gray-600" colSpan={5}>
+                  <th key={role} className="text-center px-2 py-3 text-[14px] font-semibold text-gray-600" colSpan={5}>
                     {role}
                   </th>
                 ))}
               </tr>
               <tr className="border-t border-gray-100">
-                <th className="text-left px-4 py-2 text-[13px] text-gray-400"></th>
+                <th className="text-left px-4 py-2 text-[14px] text-gray-400"></th>
                 {roleOrder.map((role) => (
                   ["Xem", "Tạo", "Sửa", "Xóa", "PD"].map((perm) => (
-                    <th key={`${role}-${perm}`} className="text-center px-1 py-2 text-[13px] text-gray-400 font-normal">{perm}</th>
+                    <th key={`${role}-${perm}`} className="text-center px-1 py-2 text-[14px] text-gray-400 font-normal">{perm}</th>
                   ))
                 ))}
               </tr>
@@ -111,7 +111,7 @@ export default function Page() {
             <tbody>
               {modules.map((mod, i) => (
                 <tr key={mod.name} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                  <td className="px-4 py-3 font-medium text-gray-700 text-[13px]">{mod.name}</td>
+                  <td className="px-4 py-3 font-medium text-gray-700 text-[14px]">{mod.name}</td>
                   {roleOrder.map((role) => {
                     const perms = mod.roles[role as keyof typeof mod.roles];
                     return (

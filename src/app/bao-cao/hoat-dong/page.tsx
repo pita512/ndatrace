@@ -47,9 +47,9 @@ export default function Page() {
       <div className="grid grid-cols-4 gap-4 mb-6">
         {summaryCards.map((c) => (
           <div key={c.label} className="bg-white rounded-2xl border border-gray-100 p-4">
-            <p className="text-[13px] text-gray-500 mb-1">{c.label}</p>
+            <p className="text-[14px] text-gray-500 mb-1">{c.label}</p>
             <p className="text-2xl font-bold text-gray-900">{c.value}</p>
-            <p className={`text-[13px] mt-1 font-medium ${c.up ? "text-green-600" : "text-red-500"}`}>
+            <p className={`text-[14px] mt-1 font-medium ${c.up ? "text-green-600" : "text-red-500"}`}>
               {c.change} so với tháng trước
             </p>
           </div>

@@ -53,10 +53,10 @@ export default function RecentActivity() {
           <div key={a.id} className="flex items-start gap-3">
             <div className="mt-0.5 shrink-0">{typeIcon[a.type]}</div>
             <div className="flex-1 min-w-0">
-              <p className="text-[13px] font-medium text-gray-700 truncate">{a.action}</p>
-              <p className="text-[13px] text-gray-400 truncate">{a.entity}</p>
+              <p className="text-[14px] font-medium text-gray-700 truncate">{a.action}</p>
+              <p className="text-[14px] text-gray-400 truncate">{a.entity}</p>
             </div>
-            <p className="text-[13px] text-gray-400 shrink-0 whitespace-nowrap">{a.time}</p>
+            <p className="text-[14px] text-gray-400 shrink-0 whitespace-nowrap">{a.time}</p>
           </div>
         ))}
       </div>

@@ -49,10 +49,10 @@ export default function LoginPage() {
         <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         {/* Text */}
         <div className="absolute bottom-[80px] left-1/2 -translate-x-1/2 w-[614px] max-w-[90%] text-center text-white">
-          <h1 className="font-semibold text-[42px] leading-[1.4] tracking-[-0.01em]">
+          <h1 className="font-semibold text-[43px] leading-[1.4] tracking-[-0.01em]">
             Hệ thống Truy xuất nguồn gốc Quốc gia
           </h1>
-          <p className="mt-2 font-normal text-[20px] leading-[1.6]">
+          <p className="mt-2 font-normal text-[21px] leading-[1.6]">
             Nền tảng quản lý và truy xuất nguồn gốc chuỗi cung ứng tích hợp toàn diện.
           </p>
         </div>
@@ -77,8 +77,8 @@ export default function LoginPage() {
               <Image src="/media/logo.svg" alt="NDATrace" width={52} height={52} priority />
             </div>
             <div className="text-center leading-[1.6]">
-              <p className="font-medium text-[24px] text-[#0D0D12]">Đăng nhập</p>
-              <p className="font-normal text-[14px] text-[#55555E]">Nhập thông tin tài khoản để tiếp tục</p>
+              <p className="font-medium text-[25px] text-[#0D0D12]">Đăng nhập</p>
+              <p className="font-normal text-[15px] text-[#55555E]">Nhập thông tin tài khoản để tiếp tục</p>
             </div>
           </div>
 
@@ -87,20 +87,20 @@ export default function LoginPage() {
             <div className="flex flex-col gap-[20px]">
               {/* Email */}
               <div className="flex flex-col gap-[4px]">
-                <label className="font-medium text-[14px] text-[#0D0D12] leading-[1.6]">Email</label>
+                <label className="font-medium text-[15px] text-[#0D0D12] leading-[1.6]">Email</label>
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Nhập địa chỉ email"
                   required
-                  className="h-[42px] px-3 bg-white border border-[#E3E3E8] rounded-[10px] text-[14px] text-[#0D0D12] placeholder-[#A0A0A8] outline-none focus:border-[#3388FF] focus:ring-2 focus:ring-[#3388FF]/20 transition-all w-full"
+                  className="h-[42px] px-3 bg-white border border-[#E3E3E8] rounded-[10px] text-[15px] text-[#0D0D12] placeholder-[#A0A0A8] outline-none focus:border-[#3388FF] focus:ring-2 focus:ring-[#3388FF]/20 transition-all w-full"
                 />
               </div>
 
               {/* Password */}
               <div className="flex flex-col gap-[4px]">
-                <label className="font-medium text-[14px] text-[#0D0D12] leading-[1.6]">Mật khẩu</label>
+                <label className="font-medium text-[15px] text-[#0D0D12] leading-[1.6]">Mật khẩu</label>
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
@@ -108,7 +108,7 @@ export default function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Nhập mật khẩu"
                     required
-                    className="h-[42px] w-full px-3 pr-10 bg-white border-[1.5px] border-[#E3E3E8] rounded-[10px] text-[14px] text-[#0D0D12] placeholder-[#A0A0A8] outline-none focus:border-[#3388FF] focus:ring-2 focus:ring-[#3388FF]/20 transition-all"
+                    className="h-[42px] w-full px-3 pr-10 bg-white border-[1.5px] border-[#E3E3E8] rounded-[10px] text-[15px] text-[#0D0D12] placeholder-[#A0A0A8] outline-none focus:border-[#3388FF] focus:ring-2 focus:ring-[#3388FF]/20 transition-all"
                   />
                   <button
                     type="button"
@@ -119,7 +119,7 @@ export default function LoginPage() {
                   </button>
                 </div>
                 <div className="flex justify-end">
-                  <button type="button" className="font-medium text-[12px] text-[#3388FF] leading-[1.6]">
+                  <button type="button" className="font-medium text-[13px] text-[#3388FF] leading-[1.6]">
                     Quên mật khẩu?
                   </button>
                 </div>
@@ -128,14 +128,14 @@ export default function LoginPage() {
 
             {/* Error */}
             {error && (
-              <p className="text-[13px] text-red-500 bg-red-50 border border-red-100 rounded-[10px] px-3 py-2">{error}</p>
+              <p className="text-[14px] text-red-500 bg-red-50 border border-red-100 rounded-[10px] px-3 py-2">{error}</p>
             )}
 
             {/* Login button */}
             <button
               type="submit"
               disabled={loading}
-              className="h-[48px] w-full bg-[#3388FF] hover:bg-[#2277ee] disabled:bg-[#3388FF]/60 rounded-[8px] font-semibold text-[16px] text-white flex items-center justify-center gap-2 transition-colors"
+              className="h-[48px] w-full bg-[#3388FF] hover:bg-[#2277ee] disabled:bg-[#3388FF]/60 rounded-[8px] font-semibold text-[17px] text-white flex items-center justify-center gap-2 transition-colors"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -146,11 +146,11 @@ export default function LoginPage() {
 
           {/* Demo hint */}
           <div className="px-3.5 py-3 bg-blue-50 rounded-[10px] border border-blue-100">
-            <p className="text-[12px] text-blue-600 font-medium">Demo: Nhập bất kỳ email + mật khẩu ≥ 6 ký tự</p>
+            <p className="text-[13px] text-blue-600 font-medium">Demo: Nhập bất kỳ email + mật khẩu ≥ 6 ký tự</p>
           </div>
 
           {/* Sign up */}
-          <div className="flex items-center justify-center gap-1 font-medium text-[14px] leading-[1.6] text-center pt-1">
+          <div className="flex items-center justify-center gap-1 font-medium text-[15px] leading-[1.6] text-center pt-1">
             <span className="text-[#55555E]">Chưa có tài khoản?</span>
             <span className="text-[#3388FF] underline cursor-pointer">Đăng ký</span>
           </div>

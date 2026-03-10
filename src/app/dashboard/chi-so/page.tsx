@@ -58,9 +58,9 @@ export default function Page() {
       <div className="grid grid-cols-4 gap-4 mb-6">
         {kpis.map((k) => (
           <div key={k.label} className="bg-white rounded-2xl border border-gray-100 p-4">
-            <p className="text-[13px] text-gray-500 mb-1">{k.label}</p>
+            <p className="text-[14px] text-gray-500 mb-1">{k.label}</p>
             <p className={`text-2xl font-bold ${k.color}`}>{k.value}</p>
-            <p className="text-[13px] text-gray-400 mt-1">{k.sub}</p>
+            <p className="text-[14px] text-gray-400 mt-1">{k.sub}</p>
           </div>
         ))}
       </div>

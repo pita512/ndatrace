@@ -92,9 +92,9 @@ export default function Page() {
       <div className="grid grid-cols-4 gap-4 mb-6">
         {statCards.map((c) => (
           <div key={c.label} className="bg-white rounded-2xl border border-gray-100 p-4">
-            <p className="text-[13px] text-gray-500 mb-1">{c.label}</p>
+            <p className="text-[14px] text-gray-500 mb-1">{c.label}</p>
             <p className={`text-2xl font-bold ${c.color}`}>{c.value}</p>
-            <p className="text-[13px] text-gray-400 mt-1">{c.sub}</p>
+            <p className="text-[14px] text-gray-400 mt-1">{c.sub}</p>
           </div>
         ))}
       </div>

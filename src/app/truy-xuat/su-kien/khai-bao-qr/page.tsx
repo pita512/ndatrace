@@ -47,7 +47,7 @@ const columns = [
           <div className="flex-1 bg-gray-100 rounded-full h-1.5 w-20">
             <div className="bg-brand-600 h-1.5 rounded-full" style={{ width: `${pct}%` }} />
           </div>
-          <span className="text-[13px] text-gray-600">{pct}%</span>
+          <span className="text-[14px] text-gray-600">{pct}%</span>
         </div>
       );
     },

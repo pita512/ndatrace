@@ -61,23 +61,23 @@ const SmallTable = ({
   <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
     <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
       <h2 className="text-sm font-semibold text-gray-700">{title}</h2>
-      <button className="text-[13px] text-brand-600 font-medium hover:underline">+ Thêm mới</button>
+      <button className="text-[14px] text-brand-600 font-medium hover:underline">+ Thêm mới</button>
     </div>
     <div className="overflow-x-auto">
       <table className="w-full text-sm">
         <thead className="bg-gray-50">
           <tr>
             {headers.map((h) => (
-              <th key={h} className="text-left px-4 py-2.5 text-[13px] font-semibold text-gray-500">{h}</th>
+              <th key={h} className="text-left px-4 py-2.5 text-[14px] font-semibold text-gray-500">{h}</th>
             ))}
-            <th className="text-left px-4 py-2.5 text-[13px] font-semibold text-gray-500">Trạng thái</th>
+            <th className="text-left px-4 py-2.5 text-[14px] font-semibold text-gray-500">Trạng thái</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((row, i) => (
             <tr key={i} className={`border-t border-gray-50 ${i % 2 === 1 ? "bg-gray-50/50" : ""}`}>
               {row.slice(0, -1).map((cell, j) => (
-                <td key={j} className="px-4 py-2.5 text-[13px] text-gray-700">{String(cell)}</td>
+                <td key={j} className="px-4 py-2.5 text-[14px] text-gray-700">{String(cell)}</td>
               ))}
               <td className="px-4 py-2.5">
                 <Badge variant={row[row.length - 1] === "active" ? "success" : "neutral"}>
