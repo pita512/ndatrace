@@ -45,6 +45,8 @@ export const navigation: NavItem[] = [
     href: "/bao-cao",
     children: [
       { label: "Báo cáo cơ sở", href: "/bao-cao/co-so" },
+      { label: "Báo cáo doanh nghiệp", href: "/bao-cao/doanh-nghiep" },
+      { label: "Báo cáo sản phẩm", href: "/bao-cao/san-pham" },
       { label: "Báo cáo giấy ATTP", href: "/bao-cao/giay-attp" },
       { label: "Báo cáo kiểm tra", href: "/bao-cao/kiem-tra" },
       { label: "Báo cáo ngộ độc", href: "/bao-cao/ngo-doc" },
