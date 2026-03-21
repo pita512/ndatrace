@@ -4,7 +4,7 @@ import { useState } from "react";
 import DashboardLayout from "@/components/layout/DashboardLayout";
 import Badge from "@/components/ui/Badge";
 import Modal from "@/components/ui/Modal";
-import { FileCheck2, Building2, ClipboardList, FileText, Eye, CheckCircle, AlertTriangle, Calendar, Tag } from "lucide-react";
+import { FileCheck2, Building2, ClipboardList, FileText, Eye, CheckCircle, AlertTriangle, Calendar, Tag, ArrowLeft, X } from "lucide-react";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type MucDo = "urgent" | "warning";
@@ -83,8 +83,29 @@ const nhomConfig: Record<NhomVanDe, { label: string; icon: React.ComponentType<{
 export default function Page() {
   const [selectedGroup, setSelectedGroup] = useState<NhomVanDe | null>(null);
   const [selected, setSelected] = useState<CanhBaoRow | null>(null);
+  const [checkedIds, setCheckedIds] = useState<Set<string>>(new Set());
 
   const filtered = selectedGroup ? data.filter((r) => r.nhom === selectedGroup) : data;
+
+  const allChecked = filtered.length > 0 && filtered.every((r) => checkedIds.has(r.id));
+  const someChecked = filtered.some((r) => checkedIds.has(r.id));
+  const checkedRows = filtered.filter((r) => checkedIds.has(r.id));
+
+  function toggleAll() {
+    if (allChecked) {
+      setCheckedIds((prev) => { const next = new Set(prev); filtered.forEach((r) => next.delete(r.id)); return next; });
+    } else {
+      setCheckedIds((prev) => { const next = new Set(prev); filtered.forEach((r) => next.add(r.id)); return next; });
+    }
+  }
+
+  function toggleRow(id: string) {
+    setCheckedIds((prev) => { const next = new Set(prev); next.has(id) ? next.delete(id) : next.add(id); return next; });
+  }
+
+  function clearSelection() {
+    setCheckedIds(new Set());
+  }
 
   return (
     <>
@@ -134,9 +155,39 @@ export default function Page() {
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
           {/* Table header row */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800">
-            <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-              {selectedGroup ? nhomConfig[selectedGroup].label : "Tất cả cảnh báo"}
-            </p>
+            <div className="flex items-center gap-2 flex-wrap">
+              {selectedGroup && (
+                <button
+                  onClick={() => setSelectedGroup(null)}
+                  className="inline-flex items-center gap-1 text-[13px] text-gray-500 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                >
+                  <ArrowLeft size={14} />
+                  Cảnh báo
+                </button>
+              )}
+              {selectedGroup && <span className="text-gray-300 dark:text-gray-700">/</span>}
+              <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+                {selectedGroup ? nhomConfig[selectedGroup].label : "Tất cả cảnh báo"}
+              </p>
+              {someChecked && (
+                <>
+                  <span className="text-gray-300 dark:text-gray-700 mx-1">·</span>
+                  <span className="text-[13px] text-brand-600 dark:text-brand-400 font-medium">Đã chọn {checkedRows.length}</span>
+                  <button
+                    onClick={clearSelection}
+                    className="inline-flex items-center gap-1 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-2.5 py-1 rounded-lg transition-colors"
+                  >
+                    <X size={11} /> Bỏ chọn
+                  </button>
+                  <button
+                    onClick={clearSelection}
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 px-2.5 py-1 rounded-lg transition-colors"
+                  >
+                    <CheckCircle size={11} /> Phê duyệt ({checkedRows.length})
+                  </button>
+                </>
+              )}
+            </div>
             <p className="text-[13px] text-gray-400">{filtered.length} bản ghi</p>
           </div>
 
@@ -145,6 +196,15 @@ export default function Page() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-gray-50/60 dark:bg-gray-800/40 border-b border-gray-100 dark:border-gray-800">
+                  <th className="px-4 py-3 w-10">
+                    <input
+                      type="checkbox"
+                      checked={allChecked}
+                      ref={(el) => { if (el) el.indeterminate = someChecked && !allChecked; }}
+                      onChange={toggleAll}
+                      className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-brand-600 accent-brand-600 cursor-pointer"
+                    />
+                  </th>
                   {["Mã", "Tiêu đề", "Nội dung", "Mức độ", "Trạng thái", "Ngày đến hạn", "Thao tác"].map((h) => (
                     <th key={h} className="text-left px-4 py-3 text-[13px] font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{h}</th>
                   ))}
@@ -155,7 +215,15 @@ export default function Page() {
                   const mucDo = mucDoMap[row.muc_do];
                   const trangThai = trangThaiMap[row.trang_thai];
                   return (
-                    <tr key={row.id} className="border-b border-gray-50 dark:border-gray-800 hover:bg-gray-50/60 dark:hover:bg-gray-800/30 transition-colors">
+                    <tr key={row.id} className={`border-b border-gray-50 dark:border-gray-800 transition-colors ${checkedIds.has(row.id) ? "bg-brand-50/60 dark:bg-brand-900/10" : "hover:bg-gray-50/60 dark:hover:bg-gray-800/30"}`}>
+                      <td className="px-4 py-3.5 w-10">
+                        <input
+                          type="checkbox"
+                          checked={checkedIds.has(row.id)}
+                          onChange={() => toggleRow(row.id)}
+                          className="w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-brand-600 accent-brand-600 cursor-pointer"
+                        />
+                      </td>
                       <td className="px-4 py-3.5 font-mono text-xs text-gray-400">{row.id}</td>
                       <td className="px-4 py-3.5 text-gray-700 dark:text-gray-300 max-w-[180px]">
                         <span className="text-[13px]">{row.tieu_de}</span>
@@ -194,7 +262,7 @@ export default function Page() {
                 })}
                 {filtered.length === 0 && (
                   <tr>
-                    <td colSpan={7} className="text-center py-12 text-gray-400 text-sm">Không có dữ liệu</td>
+                    <td colSpan={8} className="text-center py-12 text-gray-400 text-sm">Không có dữ liệu</td>
                   </tr>
                 )}
               </tbody>
